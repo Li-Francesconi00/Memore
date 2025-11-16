@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quem Somos - Minha Loja</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===== MENU ===== -->
+  <!-- Aqui vamos "incluir" o menu.html -->
+  <div id="menu-placeholder"></div>
+
+<!-- ===== CONTEÚDO DA PÁGINA ===== -->
+<main class="main-content">
+  <section class="contato">
+    <h1>Fale Conosco</h1>
+    <p>Tem alguma dúvida ou sugestão? Entre em contato com a gente pelos canais abaixo ou deixe sua avaliação no link:</p>
+
+    <div class="contato-cards">
+      <!-- Email -->
+      <div class="contato-card">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/maildotru.svg" alt="Email">
+        <h2>Email</h2>
+        <p><a href="mailto:contato@minhaloja.com">contato@minhaloja.com</a></p>
+      </div>
+
+      <!-- WhatsApp -->
+      <div class="contato-card">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" alt="WhatsApp">
+        <h2>WhatsApp</h2>
+        <p><a href="https://wa.me/5500000000000" target="_blank">Clique para falar</a></p>
+      </div>
+
+      <!-- Instagram -->
+      <div class="contato-card">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram">
+        <h2>Instagram</h2>
+        <p><a href="https://instagram.com/sualoja" target="_blank">@sualoja</a></p>
+      </div>
+
+      <!-- Avaliação -->
+      <div class="contato-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" alt="Avaliação">
+        <h2>Avaliação</h2>
+        <p><a href="#" target="_blank">Deixe sua avaliação</a></p>
+      </div>
+    </div>
+  </section>
+</main>
+
+
+<!-- ===== BOTÃO FLUTUANTE DO WHATSAPP ===== -->
+<a href="https://wa.me/5500000000000" class="whatsapp-float" target="_blank" aria-label="Fale conosco no WhatsApp">
+  <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" alt="WhatsApp">
+</a>
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-logo">
+      <a href="index.html" class="logo">
+        <img src="IMAGENS/LOGOBRANCO.png" alt="Logo da MinhaMarca" style="height:70px;">
+      </a>
+    </div>
+
+    <div class="footer-links">
+       <!-- Botão Voltar ao Topo -->
+    <a href="#top" class="back-to-top">↑ Voltar ao topo</a>
+
+    <div class="footer-copy">
+ 
+    </div>
+
+ 
+  </div>
+</footer>
+  <!-- ===== SCRIPTS ===== -->
+  <script src="script.js"></script>
+  <script>
+    // Código para incluir o menu.html
+    fetch('menu.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('menu-placeholder').innerHTML = data;
+      });
+  </script>
+
+</body>
+</html>

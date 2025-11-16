@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quem Somos - Minha Loja</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===== MENU ===== -->
+  <!-- Aqui vamos "incluir" o menu.html -->
+  <div id="menu-placeholder"></div>
+
+<main class="main-content">
+  <section class="quem-somos">
+    <div class="qs-container">
+      <!-- Lado esquerdo: imagem da equipe / loja -->
+      <div class="qs-imagem">
+        <img src="IMAGENS/equipe.jpg" alt="Nossa Equipe" />
+      </div>
+
+      <!-- Lado direito: informações sobre a empresa -->
+      <div class="qs-texto">
+        <h1>Quem Somos</h1>
+        <p>Bem-vindo à nossa loja! Aqui você encontra produtos incríveis e um atendimento de primeira.</p>
+        
+        <div class="qs-missao-visao-valores">
+          <div class="qsmv-item">
+            <h2>Missão</h2>
+            <p>Oferecer qualidade, estilo e satisfação para todos os nossos clientes.</p>
+          </div>
+          <div class="qsmv-item">
+            <h2>Visão</h2>
+            <p>Ser referência no mercado, inovando sempre e conquistando a confiança de todos.</p>
+          </div>
+          <div class="qsmv-item">
+            <h2>Valores</h2>
+            <p>Transparência, compromisso, ética e amor pelo que fazemos.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ===== BOTÃO FLUTUANTE DO WHATSAPP ===== -->
+<a href="https://wa.me/5500000000000" class="whatsapp-float" target="_blank" aria-label="Fale conosco no WhatsApp">
+  <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" alt="WhatsApp">
+</a>
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-logo">
+      <a href="index.html" class="logo">
+        <img src="IMAGENS/LOGOBRANCO.png" alt="Logo da MinhaMarca" style="height:70px;">
+      </a>
+    </div>
+
+    <div class="footer-links">
+       <!-- Botão Voltar ao Topo -->
+    <a href="#top" class="back-to-top">↑ Voltar ao topo</a>
+
+    <div class="footer-copy">
+ 
+    </div>
+
+ 
+  </div>
+</footer>
+  <!-- ===== SCRIPTS ===== -->
+  <script src="script.js"></script>
+  <script>
+    // Código para incluir o menu.html
+    fetch('menu.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('menu-placeholder').innerHTML = data;
+      });
+  </script>
+
+</body>
+</html>

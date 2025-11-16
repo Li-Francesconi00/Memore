@@ -1,395 +1,1069 @@
-/* Reset básico */
+/* ==========================
+   ESTRUTURA BÁSICA
+========================== */
+
+/* reset geral para remover margens/paddings padrão do navegador */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0; /* remove margem padrão */
+  padding: 0; /* remove padding padrão */
+  box-sizing: border-box; /* inclui padding/borda no cálculo total */
 }
 
+
+/* estilos gerais da página inteira */
 body {
-    font-family: Arial, sans-serif;
-}
-
-/* Header */
-header {
-    background-color: #fcfcfc;
-}
-
-.top-links {
-    background-color: #326e77;
-    color: white;
-      display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    gap: 20px;
-    padding: 12px 20px;
-
-}
-
-.top-links a {
-    color: #fcfcfc;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.top-links a:hover {
-    color: #e50f54;
-}
-
-.header-main {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 15px 50px;
-    flex-wrap: wrap;
-}
-
-.logo {
-    height: 150px;
-}
-
-.search {
-    flex: 1;
-    margin: 0 20px;
-    padding: 8px;
-    font-size: 16px;
-    min-width: 150px;
-}
-
-.social-icons a img {
-    height: 30px;
-    margin-left: 15px;
-}
-.social-icons a::after {
-    content: '';
-    position: absolute;
-    left: 8px;               /* alinhamento horizontal inicial */
-    bottom: -4px;          /* afasta a linha para ficar abaixo da imagem */
-    width: 0;
-    height: 2px;           /* altura da linha */
-    background-color: #e50f54;
-    transition: width 0.3s ease;
-}
-
-.social-icons a:hover::after {
-    width: 100%;
+  display: flex; /* ativa layout flexível */
+  flex-direction: column; /* coloca header > conteúdo > footer em coluna */
+  min-height: 100vh; /* altura mínima igual à tela */
+  font-family: Arial, Helvetica, sans-serif; /* família de fontes padrão */
+  background-color: #fff; /* cor do fundo da página */
+  color: #222; /* cor padrão do texto */
+  line-height: 1.5; /* altura das linhas para leitura melhor */
 }
 
 
-
-/* Menu principal */
-.main-nav {
-    display: flex;
-    justify-content: flex-start;
-    gap: 50px;
-    padding: 15px 50px;
-    background-color: #326e77;
-    margin-bottom: 0px; /* adiciona espaço abaixo do menu */
-}
-
-.main-nav a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s;
-}
-
-.main-nav a:hover {
-    color: #e50f54;
-}
-
-/* Carrossel */
-.carousel {
-    position: relative;
-    width: 100%;      /* ocupa toda a tela */
-    height: 450px;    /* altura da faixa, ajusta como quiser */
-    overflow: hidden;
-}
-
-.slides {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-}
-
-.slide {
-    min-width: 100%;
-    display: none;
-}
-
-.slide.active {
-    display: block;
-}
-
-.slide img {
-    width: 100%;
-    height: 100%;      /* preenche a altura do carrossel */
-    object-fit: cover; /* mantém proporção e corta o que ultrapassar */
-}
-
-
-.prev, .next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(50,50,50,0.5);
-    border: none;
-    color: white;
-    font-size: 30px;
-    padding: 10px;
-    cursor: pointer;
-    display: none;
-    z-index: 10;
-}
-
-.carousel:hover .prev,
-.carousel:hover .next {
-    display: block;
-}
-
-.prev {
-    left: 10px;
-}
-
-.next {
-    right: 10px;
-}
-
-/* Produtos */
-.produtos-section {
-    padding: 40px 20px;
-    text-align: center;
-}
-
-.produtos-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 20px;
-}
-
-.produto-card {
-    width: 200px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    padding: 10px;
-    text-align: center;
-    transition: transform 0.3s;
-}
-
-.produto-card:hover {
-    transform: scale(1.05);
-}
-
-.produto-card img {
-    width: 100%;
-    border-radius: 5px;
-    height: 200px;
-}
-
-.produto-card h3 {
-    margin-top: 10px;
-}
-
-/* Footer */
-footer {
-    background-color: #333;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 50px;
-    padding: 20px;
-    flex-wrap: wrap;
-}
-
-.footer-logo {
-    height: 80px;
-}
-
-.sitemap a {
-    color: white;
-    text-decoration: none;
-    margin: 0 10px;
-    transition: color 0.3s;
-}
-
-.sitemap a:hover {
-    color: #e50f54;
-}
-
-/* WhatsApp flutuante */
-.whatsapp-float {
-    position: fixed;
-    right: 20px;
-    bottom: 20px;
-    z-index: 1000;
-}
-
-.whatsapp-float img {
-    height: 50px;
-}
-
-/* Responsividade */
-@media (max-width: 1024px) {
-    .header-main {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .search {
-        margin: 10px 0;
-        width: 100%;
-    }
-
-    .main-nav {
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .social-icons {
-        margin-top: 10px;
-    }
-}
-
-@media (max-width: 600px) {
-    .top-links {
-        flex-direction: column;
-        gap: 10px;
-        padding: 10px 0;
-    }
-
-    .header-main {
-        padding: 15px 20px;
-    }
-
-    .social-icons a img {
-        height: 25px;
-        margin-left: 10px;
-    }
-
-    .whatsapp-float img {
-        height: 40px;
-    }
-
-    .produto-card {
-        width: 45%;
-    }
-}
-/* ===== Efeito global para todos os links ===== */
+/* links do site */
 a {
-    position: relative;
-    color: inherit; /* mantém a cor do contexto (menu, footer etc.) */
-    text-decoration: none;
-    padding-bottom: 3px;
+  text-decoration: none; /* remove sublinhado padrão */
+  color: inherit; /* herda cor do elemento pai */
 }
 
-a::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 2px;
-    width: 0;
-    background-color: #e50f54;
-    transition: width 0.3s ease-in-out;
+
+/* conteúdo entre header e footer */
+.main-content {
+  flex: 1; /* ocupa espaço livre entre topo e rodapé */
+  padding: 2rem; /* espaçamento interno */
+  justify-content: center; /* centraliza conteúdo no eixo principal (se aplicado com flex) */
 }
 
-a:hover::after {
-    width: 100%;
+
+/* TÍTULO DA PÁGINA */
+.product-page h1 {
+  text-align: center; /* centraliza o título */
+  margin-bottom: 2rem; /* espaço abaixo do título */
 }
-/* Indicadores (bolinhas) do carrossel */
+
+
+/* GRID DE PRODUTOS */
+.product-grid {
+  display: grid; /* ativa CSS Grid */
+  grid-template-columns: repeat(3, 1fr); /* cria 3 colunas de tamanho igual */
+  gap: 2rem; /* espaço entre os itens da grade */
+  justify-items: center; /* centraliza cada card dentro da sua célula */
+}
+
+
+
+/* ==========================
+   FIM
+========================== */
+
+
+
+
+
+/* ==========================
+   HEADER
+========================== */
+
+/* área superior do site contendo logo, busca e ícones */
+header {
+  background-color: #fcfcfc; /* fundo cinza muito claro */
+  color: white; /* cor do texto dentro do header */
+  display: flex; /* organiza conteúdo lado a lado */
+  align-items: center; /* alinha verticalmente no centro */
+  justify-content: space-between; /* deixa elementos nas extremidades */
+  padding: 10px 30px; /* espaçamento interno */
+}
+
+
+/* título principal dentro do header */
+header h1 {
+  font-size: 1.5rem; /* tamanho da fonte do título */
+}
+
+
+/* campo de busca dentro do header */
+header input[type="text"] {
+  padding: 6px; /* área interna */
+  border: 1px solid #000; /* borda preta */
+  border-radius: 4px; /* cantos arredondados */
+  outline: none; /* remove borda azul padrão ao selecionar */
+}
+
+
+/* faixa colorida acima do header */
+.faixa-topo {
+  width: 100%; /* ocupa toda a largura da tela */
+  height: 30px; /* altura da faixa */
+  background: #326e77; /* cor verde-azulada */
+}
+
+
+/* logo */
+.logo-link img {
+  height: 150px; /* altura fixa da logo */
+  ; /* linha vazia que você deixou — mantida */
+}
+
+
+/* container dos ícones sociais */
+.social-icons {
+  display: flex; /* coloca ícones lado a lado */
+  gap: 10px; /* espaço entre ícones */
+  margin-right: 30px; /* afasta do canto direito */
+}
+
+
+/* estilização dos links sociais */
+.social {
+  color: white; /* cor do texto do link */
+  text-decoration: none; /* remove underline */
+  font-weight: bold; /* deixa o texto mais forte */
+}
+
+
+/* imagens dos ícones sociais */
+.social-icons img {
+  width: 30px; /* tamanho horizontal */
+  height: 30px; /* tamanho vertical */
+  transition: filter 0.3s ease; /* animação suave no hover */
+}
+
+
+/* efeito ao passar o mouse nos ícones sociais */
+.social-icons img:hover {
+  filter: brightness(0) invert(0.8); /* escurece/inverte levemente */
+}
+
+
+/* ==========================
+   FIM
+========================== */
+
+
+/* ==========================
+   MENU
+========================== */
+
+/* barra principal do menu */
+.menu {
+  background-color: #326e77; /* cor verde-azulada do menu */
+  position: relative; /* permite posicionar submenu relativo ao menu */
+  z-index: 10; /* mantém o menu acima dos outros elementos */
+  height: 40px; /* altura da barra do menu */
+  display: flex; /* ativa layout flex */
+  align-items: center; /* centraliza itens verticalmente */
+  justify-content: center; /* centraliza conteúdo horizontalmente */
+}
+
+
+/* container interno do menu */
+.menu-container {
+  display: flex; /* alinha itens lado a lado */
+  align-items: center; /* centraliza verticalmente */
+  justify-content: space-between; /* separa itens para esquerda/direita */
+  padding: 10px 30px; /* espaçamento interno */
+}
+
+
+/* lista principal do menu */
+.menu-list {
+  list-style: none; /* remove bolinhas da lista */
+  display: flex; /* coloca os itens lado a lado */
+  gap: 20px; /* espaço horizontal entre itens */
+}
+
+
+/* links do menu */
+.menu-list a {
+  color: white; /* cor do texto */
+  text-decoration: none; /* remove underline */
+  font-weight: bold; /* deixa texto forte */
+  transition: color 0.3s ease; /* anima cor ao passar mouse */
+}
+
+
+/* efeito hover nos links do menu */
+.menu-list a:hover {
+  color: #e50f54; /* rosa vibrante ao passar o mouse */
+}
+
+
+/* submenu da versão desktop */
+.submenu {
+  display: none; /* escondido por padrão */
+  position: absolute; /* fica abaixo do item pai */
+  top: 100%; /* encosta na parte inferior do menu */
+  background-color: #326e77; /* mesma cor do menu */
+  list-style: none; /* remove marcadores */
+  padding: 10px 0; /* espaço interno vertical */
+  box-shadow: 0 2px 5px #111; /* sombra leve */
+}
+
+
+/* itens dentro do submenu */
+.submenu li {
+  padding: 5px 15px; /* espaçamento interno */
+}
+
+
+/* links do submenu */
+.submenu a {
+  color: white; /* texto branco */
+  text-decoration: none; /* sem underline */
+}
+
+
+/* classe aplicada pelo JS para abrir submenu */
+.has-submenu.open .submenu {
+  display: block; /* mostra submenu */
+}
+
+
+/* botão hambúrguer (mobile) */
+.hamburger {
+  display: none; /* escondido no desktop */
+  background: none; /* remove fundo padrão */
+  border: none; /* sem borda */
+  color: white; /* cor do ícone */
+  font-size: 24px; /* tamanho grande */
+  cursor: pointer; /* mãozinha no hover */
+}
+
+
+/* painel lateral do menu mobile */
+.mobile-panel {
+  display: none; /* escondido por padrão */
+  position: fixed; /* fixo na tela */
+  top: 0; /* começa no topo */
+  left: 0; /* encostado à esquerda */
+  height: 100vh; /* altura da tela inteira */
+  width: 70%; /* largura do painel */
+  background-color: #326e77; /* fundo verde-azulado */
+  color: white; /* cor do texto */
+  padding: 20px; /* espaçamento interno */
+  flex-direction: column; /* itens empilhados */
+  gap: 15px; /* espaço entre itens */
+  z-index: 100; /* fica sempre acima */
+}
+
+
+/* painel quando aberto */
+.mobile-panel.show {
+  display: flex; /* ativa painel */
+}
+
+
+/* botão de fechar painel mobile */
+#close-panel {
+  background: none; /* sem fundo */
+  border: none; /* sem borda */
+  color: white; /* cor do X */
+  font-size: 28px; /* tamanho grande */
+  align-self: flex-end; /* alinha à direita */
+  cursor: pointer; /* cursor de clique */
+}
+
+
+/* lista de links mobile */
+.mobile-menu-list {
+  list-style: none; /* remove marcadores */
+}
+
+
+/* links mobile */
+.mobile-menu-list a {
+  color: white; /* texto branco */
+  text-decoration: none; /* remove underline */
+  font-size: 1.1rem; /* fonte um pouco maior */
+}
+
+
+/* submenus da versão mobile */
+.has-submenu-mobile ul {
+  display: none; /* escondido inicialmente */
+  list-style: none; /* remove marcadores */
+  margin-left: 15px; /* indentação */
+}
+
+
+/* abre submenu mobile quando ativa */
+.has-submenu-mobile.show ul {
+  display: block; /* mostra submenu */
+}
+
+
+/* ==========================
+   FIM
+========================== */
+
+
+
+
+/* ==========================
+   CARROSSEL DE SLIDES
+========================== */
+
+/* container geral do carrossel */
+.carousel {
+  position: relative; /* permite posicionar botões e indicadores */
+  width: 100%; /* ocupa largura total */
+  overflow: hidden; /* esconde partes que saem da área */
+  height: 450px; /* altura da versão desktop */
+}
+
+
+/* faixa que contém todos os slides */
+.carousel .slides {
+  display: flex; /* coloca slides lado a lado (mesmo invisíveis) */
+  width: 100%; /* largura total */
+  height: 100%; /* altura igual ao carrossel */
+  transition: transform 0.5s ease; /* anima troca de slide */
+}
+
+
+/* cada slide individual */
+.carousel .slide {
+  position: absolute; /* todos ficam sobrepostos */
+  top: 0; /* encosta no topo */
+  left: 0; /* encosta à esquerda */
+  width: 100%; /* ocupa toda a área */
+  height: 100%; /* altura total */
+  opacity: 0; /* invisível por padrão */
+  transition: opacity 0.8s ease; /* fade suave */
+}
+
+
+/* imagem dentro de cada slide */
+.carousel .slide img {
+  width: 100%; /* ocupa toda a largura */
+  height: 100%; /* ocupa toda a altura */
+  object-fit: cover; /* corta imagem para encaixar sem distorcer */
+  display: block; /* remove espaços indesejados */
+}
+
+
+/* quando o slide está ativo */
+.slide.active {
+  opacity: 1; /* visível */
+  z-index: 1; /* fica acima dos demais */
+}
+
+
+/* botão dentro do slide (call to action) */
+.carousel .slide .slide-btn {
+  position: absolute; /* posicionamento em relação ao slide */
+  bottom: 40px; /* distância do fundo */
+  left: 50%; /* centraliza horizontalmente */
+  transform: translateX(-50%); /* finaliza centralização */
+  background: #e50f54; /* cor rosa vibrante */
+  color: #ffffff; /* texto branco */
+  padding: 12px 25px; /* tamanho do botão */
+  border-radius: 30px; /* forma de pílula */
+  font-weight: 600; /* fonte mais forte */
+  text-decoration: none; /* remove underline */
+  z-index: 2; /* acima da imagem */
+  transition: all 0.3s ease; /* anima ao passar mouse */
+}
+
+
+/* botões de navegação (próximo e anterior) */
+.carousel .prev,
+.carousel .next {
+  position: absolute; /* posicionamento sobre a imagem */
+  top: 50%; /* no meio da altura */
+  transform: translateY(-50%); /* centraliza verticalmente */
+  background: rgba(0,0,0,0.6); /* fundo preto translúcido */
+  color: #fff; /* cor do ícone */
+  border: none; /* sem borda */
+  padding: 12px 16px; /* área de clique */
+  border-radius: 50%; /* formato redondo */
+  cursor: pointer; /* cursor de clique */
+  z-index: 3; /* acima de tudo */
+}
+
+
+/* botão anterior (esquerda) */
+.carousel .prev { left: 15px; /* distância da borda esquerda */ }
+
+/* botão próximo (direita) */
+.carousel .next { right: 15px; /* distância da borda direita */ }
+
+
+/* indicadores (bolinhas) */
 .indicators {
-    position: absolute;
-    bottom: 15px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 8px;
-    justify-content: center;
-    align-items: center;
+  position: absolute; /* sobre o slide */
+  bottom: 10px; /* distância do fundo */
+  left: 50%; /* centraliza horizontalmente */
+  transform: translateX(-50%); /* completa centralização */
+  display: flex; /* coloca bolinhas lado a lado */
+  gap: 6px; /* espaço entre elas */
+  z-index: 3; /* visível acima do slide */
 }
 
+
+/* estilo das bolinhas */
 .indicators button {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    border: none;
-    background-color: #000000;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+  width: 10px; /* tamanho horizontal */
+  height: 10px; /* tamanho vertical */
+  border-radius: 50%; /* formato circular */
+  border: 1px solid #000; /* contorno preto */
+  background: rgba(255,255,255,0.6); /* fundo branco semi-transparente */
+  cursor: pointer; /* cursor de clique */
+  transition: all 0.3s ease; /* animações suaves */
 }
 
-.indicators button:hover {
-    transform: scale(1.2);
-    background-color: rgba(165, 25, 25, 0.8);
-}
 
+/* bolinha ativa */
 .indicators button.active {
-    background-color: #e50f54; /* verde de destaque */
+  background: #e50f54; /* rosa vibrante */
 }
 
 
+/* ==========================
+   FIM
+========================== */
 
 
 
 
-.slide-btn {
-    position: absolute;
-    bottom: 50px;      
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 10px 20px;
-    background-color: #326e77; /* mantém fundo igual */
-    color: #fcfcfc;               /* cor normal do texto */
-    font-weight: bold;
-    text-decoration: none;
-    border-radius: 5px;
-    z-index: 20;
-    transition: color 0.3s;     /* animação apenas do texto */
+
+/* ==========================
+   CARDS DE PRODUTOS
+========================== */
+
+/* contêiner externo da seção dos cards de produtos */
+.product-carousel-wrapper {
+  padding: 40px 0;
+  text-align: center;
 }
 
-.slide-btn:hover {
-    color: #e50f54;             /* muda a cor do texto ao passar o mouse */
-}
-
-.indicators {
-    position: absolute;
-    bottom: 15px;      /* mantém as bolinhas mais abaixo */
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 8px;
-    justify-content: center;
-    align-items: center;
-    z-index: 10;       /* abaixo do botão */
-}
-
-/*cards*/
-.produtos-shuffle {
+/* linha horizontal onde os cards rolam */
+.product-carousel {
   display: flex;
-  justify-content: center;
-  align-items: center;
   gap: 20px;
-  margin: 50px auto;
-  max-width: 1200px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 20px;
+  justify-content: flex-start;
 }
 
+/* card individual de cada produto */
 .produto-card {
-  flex: 0 0 150px;
-  height: 200px;
-  background-color: #ccc;
+  flex: 0 0 auto;
+  height: 450px;
+  background-color: #f3f3f3;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  padding: 10px;
+  box-sizing: border-box;
+  overflow: hidden;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+  width: 250px;
+  border: 1px solid #ccc;
+  margin: 10px;
+}
+
+/* imagem principal dentro do card */
+.produto-card img {
+  width: 100%;
+ 
+  object-fit: contain;
+  display: block;
+}
+
+/* área que segura a imagem */
+.card-image {
+  height: 80%;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  opacity: 0.5;
-  transition: transform 0.5s, opacity 0.5s;
-  border-radius: 8px;
+}
+
+.card-image img {
+  height: 150%;
+  width: auto;
+  object-fit: contain;
+}
+
+/* botão genérico dentro do card */
+.card-btn {
+  border: none;
+  text-decoration: none;
+  text-align: center;
+}
+
+/* animação de destaque quando o card está ativo ou no hover */
+.produto-card.active,
+.produto-card:hover {
+  transform: scale(1.1);
+  background-color: #e0f2f1;
+}
+
+/* botão fixado no rodapé do card */
+.produto-card .card-btn {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #e50f54;
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  z-index: 5;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+/* hover no botão */
+.produto-card .card-btn:hover {
+  background-color: #c00f44;
+}
+
+/* ==========================
+   WHATSAPP FLUTUANTE
+========================== */
+/* Corrige e posiciona o botão do WhatsApp no canto da tela */
+.whatsapp-float {
+    position: fixed;                  /* fixa o botão na tela, mesmo ao rolar */
+    bottom: 20px;                     /* distância da parte inferior da tela */
+    right: 20px;                      /* distância da borda direita da tela */
+    width: 55px;                       /* largura do botão */
+    height: 55px;                      /* altura do botão */
+    z-index: 9999;                     /* garante que fique acima de tudo */
+    background-color: #25d366;         /* cor verde característica do WhatsApp */
+    border-radius: 50%;                /* deixa o botão redondo */
+    display: flex;                     /* permite centralizar o ícone com flex */
+    justify-content: center;           /* centraliza horizontalmente o ícone */
+    align-items: center;               /* centraliza verticalmente o ícone */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* sombra suave ao redor */
+}
+
+/* Estilo da imagem dentro do botão */
+.whatsapp-float img {
+    width: 30px;                       /* largura do ícone */
+    height: 30px;                      /* altura do ícone */
+    filter: invert(1);                 /* inverte cores, deixando a imagem branca */
+}
+
+/* ==========================
+   FIM
+========================== */
+
+
+
+
+/* ==========================
+   FOOTER
+========================== */
+
+/* Estilo geral do footer */
+.site-footer {
+    background-color: #111;      /* fundo preto escuro */
+    color: white;                /* cor do texto branca */
+    text-align: center;          /* centraliza o conteúdo */
+    padding: 2rem;               /* espaçamento interno */
+    margin-top: auto;            /* força o footer a ficar no fim da página */
+}
+
+/* Container interno do footer */
+.footer-container {
+    max-width: 1200px;           /* largura máxima do conteúdo */
+    margin: 0 auto;              /* centraliza horizontalmente */
+    display: flex;               /* usa flexbox para organizar os itens */
+    flex-wrap: wrap;             /* permite quebrar linhas se necessário */
+    justify-content: space-between; /* espaça igualmente os itens */
+    align-items: center;         /* alinha itens verticalmente no centro */
+}
+
+/* Logo dentro do footer */
+.footer-logo img {
+    height: 50px;                /* altura do logo */
+    width: 100px;                /* largura do logo */
+}
+
+/* Lista de links do footer */
+.footer-links ul {
+    list-style: none;            /* remove marcadores da lista */
+    display: flex;               /* exibe links em linha */
+    justify-content: center;     /* centraliza horizontalmente */
+    gap: 1rem;                   /* espaço entre os links */
+    padding: 10px 0;             /* espaçamento vertical */
+}
+
+/* Estilo geral dos links do footer */
+.footer-links a {
+    color: white;                /* cor branca */
+    text-decoration: none;       /* remove sublinhado */
+}
+
+/* Links dentro dos itens da lista */
+.footer-links ul li a {
+    color: #fff;                 /* reforça a cor branca */
+    transition: color 0.2s;      /* transição suave ao mudar de cor */
+}
+
+/* Efeito hover nos links */
+.footer-links a:hover,
+.footer-links ul li a:hover {
+    color: #e50f54;              /* muda para rosa ao passar o mouse */
+}
+
+/* Texto de copyright ou informações adicionais */
+.footer-copy {
+    font-size: 0.85rem;          /* tamanho menor do texto */
+    color: #ccc;                 /* cinza claro */
+    margin-top: 1rem;            /* espaço acima do texto */
+    width: 100%;                 /* ocupa toda a largura */
+    text-align: center;          /* centraliza o texto */
+}
+
+/* ==========================
+   FIM
+========================== */
+
+/* ==========================
+   quem somos
+========================== */
+
+.qs-container {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  padding: 2rem;
+  flex-wrap: wrap; /* para mobile quebrar em coluna */
+}
+
+.qs-imagem {
+  flex: 1 1 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.qs-imagem img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 15px;
+  object-fit: cover;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.qs-texto {
+  flex: 1 1 300px;
+}
+
+.qs-texto h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #326e77;
+}
+
+.qs-texto p {
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.qs-missao-visao-valores {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.qsmv-item {
+  flex: 1 1 200px;
+  background-color: #f0f8f8;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.qsmv-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+}
+
+.qsmv-item h2 {
+  color: #e50f54;
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+}
+
+.qsmv-item p {
+  font-size: 0.95rem;
+  color: #333;
+}
+
+/* ==========================
+   FIM
+========================== */
+/* ==========================
+   pagina contato
+========================== */
+
+.contato {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.contato h1 {
+  margin-bottom: 20px;
+}
+
+.contato p {
+  max-width: 600px;
+  margin: 0 auto 40px auto;
+  color: #555;
+}
+
+.contato-cards {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.contato-card {
+  background-color: #f3f3f3;
+  padding: 20px;
+  border-radius: 15px;
+  flex: 1 1 200px;
+  max-width: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s;
   cursor: pointer;
 }
 
-.produto-card.active {
-  transform: scale(1.3); /* destaque do central */
-  opacity: 1;
+.contato-card:hover {
+  transform: translateY(-5px);
+  background-color: #e0f2f1;
+}
+
+.contato-card img {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 10px;
+}
+
+.contato-card h2 {
+  margin-bottom: 5px;
+}
+
+.contato-card a {
+  color: #326e77;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.contato-form {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contato-form input,
+.contato-form textarea {
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.contato-form button {
+  padding: 12px;
+  background-color: #e50f54;
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.contato-form button:hover {
+  background-color: #c00f44;
+}
+
+/* ==========================
+   FIM
+========================== */
+
+
+
+
+/* ==========================
+   RESPONSIVIDADE GERAL
+========================== */
+
+/* Ajustes para telas de até 768px (tablet/mobiles) */
+@media (max-width: 768px) {
+    /* Esconde a lista de menu principal */
+    .menu-list {
+        display: none;
+    }
+
+    /* Exibe o botão hambúrguer */
+    .hamburger {
+        display: block;
+    }
+
+    /* Links do footer passam a ficar em coluna */
+    .footer-links ul {
+        flex-direction: column;  /* vertical */
+        gap: 10px;               /* espaço entre os links */
+    }
+}
+
+/* ===== Ajuste robusto: barra de pesquisa menor no mobile ===== */
+@media (max-width: 768px) {
+    /* Seletores possíveis para inputs de pesquisa no header */
+    header input[type="text"],
+    header input[type="search"],
+    .search-container input[type="text"],
+    .search-container input[type="search"],
+    .header .search-container input,
+    .header input {
+        width: 78px !important;       /* força largura menor */
+        max-width: 60% !important;   /* evita ultrapassar o container */
+        box-sizing: border-box;       /* garante que padding não estoure largura */
+        padding: 6px 8px !important; /* ajusta espaçamento interno */
+        font-size: 14px !important;   /* reduz tamanho da fonte */
+    }
+
+    /* Ajusta espaçamento do header e container para evitar que o input empurre outros elementos */
+    header,
+    .menu-container {
+        gap: 8px; /* reduz gap entre itens */
+    }
+}
+
+/* ==========================
+   AJUSTES P2 (telas médias e pequenas)
+========================== */
+
+/* Ajustes para telas de até 1024px (laptops menores e tablets grandes) */
+@media (max-width: 1024px) {
+    .carousel {
+        height: 350px; /* reduz altura do carrossel */
+    }
+    .carousel .slide .slide-btn {
+        bottom: 30px;             /* posicionamento do botão */
+        padding: 10px 20px;       /* tamanho do botão */
+    }
+    .carousel .prev, .carousel .next {
+        padding: 10px 14px;       /* ajuste dos botões de navegação */
+    }
+}
+
+/* Ajustes para telas de até 768px (tablets e mobiles) */
+@media (max-width: 768px) {
+    .carousel {
+        height: 250px;            /* altura menor do carrossel */
+    }
+    .carousel .slide .slide-btn {
+        bottom: 20px;             /* botão mais próximo da base */
+        font-size: 14px;          /* fonte menor */
+        padding: 8px 16px;        /* padding menor */
+    }
+    .carousel .prev, .carousel .next {
+        padding: 8px 12px;        /* botões menores */
+    }
+}
+
+/* Ajustes para telas de até 480px (smartphones pequenos) */
+@media (max-width: 480px) {
+    .carousel {
+        height: 200px;            /* carrossel ainda menor */
+    }
+    .carousel .slide .slide-btn {
+        bottom: 15px;             /* botão mais próximo da base */
+        font-size: 12px;          /* fonte ainda menor */
+        padding: 6px 12px;        /* padding reduzido */
+    }
+    .carousel .prev, .carousel .next {
+        padding: 6px 10px;        /* botões menores */
+    }
+}
+
+/* Ajusta ícones sociais em telas muito pequenas */
+@media (max-width: 480px) {
+    .social-icons {
+        flex-direction: column;   /* coluna */
+        gap: 0;                   /* remove espaço entre ícones */
+        margin-right: 0;          /* remove margem */
+    }
+}
+
+/* Garante que o botão do WhatsApp flutuante continue visível e proporcional em mobile */
+@media (max-width: 768px) {
+    .whatsapp-float {
+        bottom: 15px;             /* distancia do rodapé */
+        right: 15px;              /* distancia da lateral */
+        width: 50px;              /* tamanho menor */
+        height: 50px;             /* tamanho menor */
+    }
+}
+
+/* Ajusta grid de produtos em telas médias (até 1024px) */
+@media (max-width: 1024px) {
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 colunas */
+    }
+}
+
+/* Ajusta grid de produtos em telas pequenas (até 600px) */
+@media (max-width: 600px) {
+    .product-grid {
+        grid-template-columns: 1fr; /* 1 coluna */
+    }
+}
+
+/* RESPONSIVO do quem somos */
+@media (max-width: 768px) {
+  .qs-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .qs-missao-visao-valores {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+}
+
+/* RESPONSIVO do contato*/
+
+@media (max-width: 768px) {
+  .contato-cards {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+
+/* ==========================
+   FIM RESPONSIVIDADE
+========================== */
+
+/*SOCORRO*/
+
+
+
+main.product-page .product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 cards por linha */
+  gap: 20px;
+  width: 100%;
+}
+
+main.product-page .produto-card {
+  height: 400px; /* altura fixa */
+  border: 1px solid #ccc;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position:relative ;
+}
+
+main.product-page .carousel-container {
+  position: relative;
+  width: 100%;
+  height: 80%;
+  overflow: hidden; /* sem scroll horizontal */
+  flex: 1;
+}
+
+main.product-page .carousel-track {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.3s ease-in-out;
+}
+
+main.product-page .carousel-img {
+  width: 100%;
+  flex-shrink: 0;
+  
+  object-fit: cover;
+  cursor: pointer;
+}
+
+main.product-page .prev,
+main.product-page .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0,0,0,0.5);
+  color: #fff;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
   z-index: 10;
 }
 
+main.product-page .prev { left: 5px; }
+main.product-page .next { right: 5px; }
+
+main.product-page .descricao-card {
+  width: 100%;
+  height: 20%; /* mantém espaço fixo para o texto */
+  padding: 5px 10px 0 10px; /* topo menor, sem centralizar */
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* alinha o texto ao topo */
+  gap: 5px;
+  overflow-y: auto; /* barra de rolagem vertical se precisar */
+  word-break: break-word; /* quebra palavras longas */
+  font-size: 14px; /* tamanho inicial da fonte */
+  line-height: 1.2;
+}
+
+/* Ajuste automático do tamanho da fonte via JS */
+
+
+main.product-page .descricao-card p { font-size: 14px; padding-top: 10px; }
+
+main.product-page .botao-comprar {
+  align-self: center;
+  padding: 5px 10px;
+  font-size: 12px;
+  background-color: #2ecc71;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 3px;
+  transition: background 0.3s;
+}
+
+main.product-page .botao-comprar:hover { background-color: #27ae60; }
+
+@media (max-width: 1024px) {
+  main.product-page .product-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+  main.product-page .product-grid { grid-template-columns: 1fr; }
+}
+h2{
+    margin-bottom: 40px;
+   font-size: 28px; 
+
+}

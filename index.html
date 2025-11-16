@@ -1,105 +1,136 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loja</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Memorê Studio</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+
+
+
 <body>
 
-    <!-- Header -->
-    <header>
-        <div class="top-links">
-            <a href="https://www.google.com">Quem somos</a>
-            <a href="https://www.google.com">Sugestões</a>
-            <a href="https://www.google.com">Avaliações</a>
+  <!-- ===== MENU POR FETCH===== -->
+  <div id="menu-placeholder"></div>
+  <!-- ================================================== -->
+
+  <!-- ===== CONTEÚDO DA PÁGINA ===== -->
+
+  <!-- ===== CARROSSEL DE SLIDES ===== -->
+  <section class="carousel">
+    <div class="slides">
+      <div class="slide active">
+        <img src="IMAGENS/bemvindo.png" alt="Slide 1">
+        <a href="quemsomos.html" class="slide-btn">Quem somos</a>
+      </div>
+      <div class="slide">
+        <img src="IMAGENS/NATALPANFL.png" alt="Slide 2">
+        <a href="natal25.html" class="slide-btn">Vem ver!</a>
+      </div>
+      <div class="slide">
+        <img src="IMAGENS/stickers.png" alt="Slide 3">
+        <a href="colecao.stickers.html" class="slide-btn">Vem ver!</a>
+      </div>
+    </div>
+
+   <button class="prev">&#10094;</button>
+   <button class="next">&#10095;</button>
+   <div class="indicators"></div>
+  </section>
+  <!-- ================================================== -->
+
+  <!-- ===== CARROSSEL DE PRODUTOS ===== -->
+  <section class="product-carousel-wrapper">
+    <h2>Produtos</h2>
+    <div class="product-carousel">
+      
+      <div class="produto-card">
+        <div class="card-image">
+          <img src="PRODUTOS/XICARAS.SUPORTE/musical.png" alt="Produto 1">
         </div>
+        <span>Kit Musical (4 xícaras com suporte)</span>
+        <a href="https://wa.me/message/H3V7AEITLP56I1" class="card-btn">Comprar</a>
+      </div>
 
-        <div class="header-main">
-            <a href="index.html">
-    <img src="IMAGENS/LOGO
-COLORIDO.png" alt="Logo" class="logo">
-</a>
-
-            <input type="text" placeholder="Pesquisar produtos..." class="search">
-            <div class="social-icons">
-                <a href="https://wa.me/message/H3V7AEITLP56I1"><img src="IMAGENS/ZAP.png" alt="Instagram"></a>
-                <a href="https://www.instagram.com/memore.ms/"><img src="IMAGENS/INSTA.png" alt="WhatsApp"></a>
-                <a href="mailto:memorestudio.ms@gmail.com"><img src="IMAGENS/MAIL.png" alt="Email"></a>
-            </div>
+      <div class="produto-card">
+        <div class="card-image">
+          <img src="PRODUTOS/SQUEEZES/robozinho.png" alt="Produto 2">
         </div>
+        <span>Produto 2</span>
+        <a href="https://wa.me/message/H3V7AEITLP56I1" class="card-btn">Comprar</a>
+      </div>
 
-        <nav class="main-nav">
-            <a href="https://www.google.com">Produtos</a>
-            <a href="https://www.google.com">Coleções</a>
-            <a href="https://www.google.com">Contato</a>
-        </nav>
-    </header>
+      <div class="produto-card">
+        <div class="card-image">
+          <img src="IMAGENS/produto3.jpg" alt="Produto 3">
+        </div>
+        <span>Produto 3</span>
+        <a href="https://wa.me/message/H3V7AEITLP56I1" class="card-btn">Comprar</a>
+      </div>
 
-    <!-- Carrossel -->
-    <section class="carousel">
-<div class="slides">
-    <div class="slide active">
-        <img src="IMAGENS/TESTE.png" alt="Slide 1">
-        <a href="https://www.google.com" target="_blank" class="slide-btn">Quem somos</a>
+      <div class="produto-card">
+        <div class="card-image">
+          <img src="IMAGENS/produto4.jpg" alt="Produto 4">
+        </div>
+        <span>Produto 4</span>
+        <a href="https://wa.me/message/H3V7AEITLP56I1" class="card-btn">Comprar</a>
+      </div>
+
+      <div class="produto-card">
+        <div class="card-image">
+          <img src="IMAGENS/produto5.jpg" alt="Produto 5">
+        </div>
+        <span>Produto 5</span>
+        <a href="https://wa.me/message/H3V7AEITLP56I1" class="card-btn">Comprar</a>
+      </div>
+
     </div>
-    <div class="slide">
-        <img src="IMAGENS/NATAL PANFL.png" alt="Slide 2">
-        <a href="https://www.google.com" target="_blank" class="slide-btn">Vem ver!</a>
-    </div>
-    <div class="slide">
-        <img src="IMAGENS/TESTE.png" alt="Slide 3">
-        <a href="https://www.google.com" target="_blank" class="slide-btn">Vem ver!</a>
-    </div>
-</div>
-
-<!-- Setas -->
-<button class="prev">&#10094;</button>
-<button class="next">&#10095;</button>
-
-<!-- Bolinhas -->
-<div class="indicators"></div>
-
-    </section>
-
-    <!-- Produtos -->
-<section class="produtos-shuffle">
-  <a href="https://www.google.com"><div class="produto-card">Produto 1</div></a>
-  <a href="https://www.google.com"><div class="produto-card">Produto 2</div></a>
-  <a href="https://www.google.com"><div class="produto-card active">Produto 3</div></a>
-  <a href="https://www.google.com"><div class="produto-card">Produto 4</div></a>
-  <a href="https://www.google.com"><div class="produto-card">Produto 5</div></a>
-</section>
+  </section>
+  <!-- ================================================== -->
 
 
-    <!-- Clonagem para loop infinito -->
-    
-  </div>
-</section>
-
-
-    <!-- Footer -->
-    <footer>
-         <a href="index.html">
-    <img src="IMAGENS/LOGOBRANCO.png" alt="Logo" class="footer-logo">
+  <!-- ===== BOTÃO FLUTUANTE DO WHATSAPP ===== -->
+  <a href="https://wa.me/message/H3V7AEITLP56I1" class="whatsapp-float" target="_blank" aria-label="Fale conosco no WhatsApp">
+    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" alt="WhatsApp">
   </a>
-        <div class="sitemap">
-            <a href="https://www.google.com">Quem somos</a>
-            <a href="https://www.google.com">Produtos</a>
-            <a href="https://www.google.com">Coleções</a>
-            <a href="https://www.google.com">Contato</a>
-        </div>
-    </footer>
+  <!-- ================================================== -->
 
-    <!-- WhatsApp flutuante -->
-    <a href="https://www.google.com" class="whatsapp-float" target="_blank">
-        <img src="IMAGENS/ZAPVERDE.png" alt="WhatsApp">
-    </a>
 
-    <script src="script.js"></script>
+ <!-- </div> NAO SEI DO Q É-->
 
-    <!--cards-->
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+   
+    <div class="footer-container">
+      
+      <div class="footer-logo">
+        <a href="index.html" class="logo">
+          <img src="IMAGENS/LOGOBRANCO.png" alt="Logo da MinhaMarca" style="height:70px;">
+        </a>
+      </div>
+
+      <div class="footer-links">
+         <a href="#top" class="back-to-top">↑ Voltar ao topo</a>
+      </div>
+      
+    </div>
+  </footer>
+  <!-- ================================================== -->
+
+  <!-- ===== SCRIPTS ===== -->
+  <script src="script.js"></script>
+    <script>
+      // Código para incluir o menu.html
+      fetch('menu.html')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('menu-placeholder').innerHTML = data;
+        });
+    </script>
+  <!-- ================================================== -->
+
 
 
 </body>
