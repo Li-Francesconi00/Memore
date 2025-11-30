@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quem Somos - Minha Loja</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===== MENU ===== -->
+  <!-- Aqui vamos "incluir" o menu.html -->
+  <div id="menu-placeholder"></div>
+
+<!-- ===== CONTEÚDO DA PÁGINA ===== -->
+<main class="main-content">
+  <section class="contato">
+    <h1>Fale Conosco</h1>
+    <p>Tem alguma dúvida ou sugestão? Entre em contato com a gente pelos canais abaixo ou deixe sua avaliação no link:</p>
+
+    <div class="contato-cards">
+      <!-- Email -->
+      <div class="contato-card">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/maildotru.svg" alt="Email">
+        <h5>Email</h5>
+        <p class="p2"><a href="mailto:memorestudio.ms@gmail.com">memorestusio.ms@gmail.com</a></p>
+      </div>
+
+      <!-- WhatsApp -->
+      <div class="contato-card">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" alt="WhatsApp">
+        <h5>WhatsApp</h5>
+        <p><a href="https://wa.me/message/H3V7AEITLP56I1" target="_blank">Clique para falar</a></p>
+      </div>
+
+      <!-- Instagram -->
+      <div class="contato-card">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram">
+        <h5>Instagram</h5>
+        <p><a href="https://www.instagram.com/memore.ms/" target="_blank">@memore.ms</a></p>
+      </div>
+
+      <!-- Avaliação -->
+      <div class="contato-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" alt="Avaliação">
+        <h5>Avaliação</h5>
+        <p><a href="https://forms.gle/GyuFSdHDA2CRV6jY9" target="_blank">Deixe sua avaliação</a></p>
+      </div>
+    </div>
+  </section>
+</main>
+
+
+  <!-- ===== BOTÃO FLUTUANTE DO WHATSAPP ===== -->
+  <a href="https://wa.me/message/H3V7AEITLP56I1" class="whatsapp-float" target="_blank" aria-label="Fale conosco no WhatsApp">
+    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" alt="WhatsApp">
+  </a>
+  <!-- ================================================== -->
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-logo">
+      <a href="index.html" class="logo">
+        <img src="IMAGENS/LOGOBRANCO.png" alt="Logo da MinhaMarca" style="height:70px;">
+      </a>
+    </div>
+
+    <div class="footer-links">
+       <!-- Botão Voltar ao Topo -->
+    <a href="#top" class="back-to-top">↑ Voltar ao topo</a>
+
+    <div class="footer-copy">
+ 
+    </div>
+
+ 
+  </div>
+</footer>
+  <!-- ===== SCRIPTS ===== -->
+  <script src="script.js"></script>
+  <script>
+    // Código para incluir o menu.html
+    fetch('menu.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('menu-placeholder').innerHTML = data;
+      });
+  </script>
+
+</body>
+</html>

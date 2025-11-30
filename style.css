@@ -159,7 +159,8 @@ header input[type="text"] {
   display: flex; /* ativa layout flex */
   align-items: center; /* centraliza itens verticalmente */
   justify-content: center; /* centraliza conteúdo horizontalmente */
-  font-size: 20px;font-weight: 700;
+  font-size: 20px;
+  font-weight: 700;
 
 }
 
@@ -233,10 +234,19 @@ header input[type="text"] {
   background: none; /* remove fundo padrão */
   border: none; /* sem borda */
   color: white; /* cor do ícone */
-  font-size: 24px; /* tamanho grande */
+  font-size: 20px; /* tamanho grande */
   cursor: pointer; /* mãozinha no hover */
 }
 
+#hamburger::after {
+  content: "Menu";
+  color: white;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 40px;
+  padding-left: 5px;
+
+}
 
 /* painel lateral do menu mobile */
 .mobile-panel {
@@ -299,6 +309,13 @@ header input[type="text"] {
   display: block; /* mostra submenu */
 }
 
+.mobile-home{
+   color: white; /* texto branco */
+  text-decoration: none; /* remove underline */
+  font-size: 20px; /* fonte um pouco maior */
+ padding-right: 100px;
+ order: -1;
+}
 
 /* ==========================
    FIM
@@ -493,7 +510,7 @@ header input[type="text"] {
 }
 
 .card-image img {
-  height: 150%;
+  height: 80%;
   width: auto;
   object-fit: contain;
 }
@@ -665,24 +682,55 @@ header input[type="text"] {
 
 .qs-texto {
   flex: 1 1 300px;
+  text-align: center;
 }
 
 .qs-texto h1 {
   font-size: 2rem;
   margin-bottom: 1rem;
   color: #326e77;
+  
+ 
+}
+
+.qs-texto h6 {
+  color: #e50f54;
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+  text-align: center;
+  
+ 
+}
+
+.h7 {
+  color: #e50f54;
+  font-size: 2rem;
+  margin-bottom: 0,5rem;
+  text-align: center;
+  
+ 
 }
 
 .qs-texto p {
   font-size: 1rem;
   margin-bottom: 1.5rem;
   line-height: 1.6;
+
+}
+
+.p1{
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+  text-align: justify;
+
 }
 
 .qs-missao-visao-valores {
   display: flex;
   gap: 20px;
   flex-wrap: wrap;
+  row-gap: 20px;
 }
 
 .qsmv-item {
@@ -692,6 +740,7 @@ header input[type="text"] {
   border-radius: 10px;
   box-shadow: 0 3px 8px rgba(0,0,0,0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-top: 20px;
 }
 
 .qsmv-item:hover {
@@ -860,6 +909,14 @@ header input[type="text"] {
     .menu-container {
         gap: 8px; /* reduz gap entre itens */
     }
+
+    .p1{
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+  text-align: center;
+
+}
 }
 
 /* ==========================
@@ -963,6 +1020,13 @@ header input[type="text"] {
   .contato-cards {
     flex-direction: column;
     gap: 15px;
+  }
+}
+
+
+@media (min-width: 1600px) {
+.carousel{
+    height:700px;
   }
 }
 
@@ -1117,5 +1181,19 @@ h5{
    padding-bottom: 20px;
   /* text-shadow: 1px 1px 3cap #c00f44;*/
    color: #000001;
+
+}
+
+
+/*panfleto natal 2025*/
+
+.natal25{
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
 }

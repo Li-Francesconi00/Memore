@@ -50,6 +50,36 @@ document.addEventListener('DOMContentLoaded', () => {
   if (slides.length > 0) { showSlide(0); startAuto(); }
 
   // ==========================
+  // SWIPE / TOUCH PARA O CARROSSEL PRINCIPAL
+  // ==========================
+  const carouselElement = document.querySelector('.carousel');
+  let touchStartX = 0;
+  let touchEndX = 0;
+  const SWIPE_THRESHOLD = 50;
+
+  if (carouselElement) {
+
+    carouselElement.addEventListener('touchstart', e => {
+      touchStartX = e.touches[0].clientX;
+      stopAuto();
+    });
+
+    carouselElement.addEventListener('touchmove', e => {
+      touchEndX = e.touches[0].clientX;
+    });
+
+    carouselElement.addEventListener('touchend', () => {
+      const distance = touchEndX - touchStartX;
+
+      if (distance > SWIPE_THRESHOLD) prevSlide();
+      else if (distance < -SWIPE_THRESHOLD) nextSlide();
+
+      restartAuto();
+    });
+
+  }
+
+  // ==========================
   // CARROSSEL DE PRODUTOS
   // ==========================
   const productPage = document.querySelector('main.product-page');
@@ -71,6 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function updateProdutos() {
     produtos.forEach((card, i) => card.classList.toggle('active', i === currentIndex));
+
     if (container && produtos[currentIndex]) {
       const activeCard = produtos[currentIndex];
       const leftPos = activeCard.offsetLeft - (container.clientWidth / 2 - activeCard.offsetWidth / 2);
@@ -91,7 +122,13 @@ document.addEventListener('DOMContentLoaded', () => {
       autoLoop = setInterval(nextCard, AUTO_DELAY_CARDS); 
     } 
   }
-  function stopLoop() { if (autoLoop) { clearInterval(autoLoop); autoLoop = null; } }
+
+  function stopLoop() { 
+    if (autoLoop) { 
+      clearInterval(autoLoop); 
+      autoLoop = null; 
+    } 
+  }
 
   produtos.forEach((card, index) => {
     card.addEventListener('mouseenter', () => { 
@@ -101,24 +138,37 @@ document.addEventListener('DOMContentLoaded', () => {
         stopLoop(); 
       } 
     });
+
     card.addEventListener('mouseleave', () => startLoop());
 
     const track = card.querySelector('.carousel-track');
     const imgs = card.querySelectorAll('.carousel-img');
     const prev = card.querySelector('.prev');
     const next = card.querySelector('.next');
+
+    // -----------------------------
+    // ★ MOSTRAR FLECHAS SOMENTE SE TIVER MAIS DE 1 FOTO ★
+    // -----------------------------
+    if (imgs.length <= 1) {
+      if (prev) prev.style.display = "none";
+      if (next) next.style.display = "none";
+    }
+
     let indexImg = 0;
 
     function showImage(i) { 
       indexImg = i; 
       if(track) track.style.transform = `translateX(-${indexImg * 100}%)`; 
     }
+
     if (prev) prev.addEventListener('click', () => showImage(indexImg > 0 ? indexImg - 1 : imgs.length - 1));
     if (next) next.addEventListener('click', () => showImage(indexImg < imgs.length - 1 ? indexImg + 1 : 0));
 
     let startX = 0;
+
     if (track) {
       track.addEventListener('touchstart', e => startX = e.touches[0].clientX);
+
       track.addEventListener('touchend', e => {
         let endX = e.changedTouches[0].clientX;
         if (endX < startX - 30) showImage(indexImg < imgs.length - 1 ? indexImg + 1 : 0);
@@ -170,7 +220,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================
-  // ZOOM DE IMAGENS (AJUSTADO)
+  // ZOOM DE IMAGENS
   // ==========================
   const zoomOverlay = document.createElement('div');
   zoomOverlay.classList.add('zoom-overlay');
@@ -216,13 +266,13 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('main.product-page .descricao-card').forEach(desc => {
     const MIN_FONT = 12;
     const MAX_FONT = 14;
-    const step = 0.5; // decremento gradual
+    const step = 0.5;
     const p = desc.querySelector('p');
     if (!p) return;
 
     let fontSize = MAX_FONT;
     p.style.fontSize = fontSize + 'px';
-    desc.style.overflowY = 'auto'; // barra de rolagem se exceder
+    desc.style.overflowY = 'auto';
 
     while (p.scrollHeight > desc.clientHeight && fontSize > MIN_FONT) {
       fontSize -= step;

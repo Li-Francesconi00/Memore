@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quem Somos - Minha Loja</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===== MENU ===== -->
+  <!-- Aqui vamos "incluir" o menu.html -->
+  <div id="menu-placeholder"></div>
+
+<main class="main-content">
+  <section class="quem-somos">
+
+      <div class="qs-imagem">
+        <img src="IMAGENS/LOGOCOLORIDO.png" alt="Nossa Equipe" />
+      </div>
+
+    <div class="qs-container">
+      <!-- Lado esquerdo: imagem da equipe / loja -->
+
+      <h class="h7">Quem Somos</h>
+        <p class="p1">Bem-vindo (a) à nossa loja! Somos a Memorê Studio, um estúdio criativo que transforma ideias em produtos personalizados.
+
+Nossa história nasceu da união de duas irmãs com formações e talentos complementares: uma especialista em Administração e outra formada em Design.
+
+Construímos uma empresa que combina organização, design e emoção, oferecendo soluções que encantam tanto no âmbito pessoal quanto no corporativo. Cada projeto é pensado para gerar impacto, seja através de lembranças afetivas, presentes exclusivos ou materiais personalizados que fortalecem a identidade de empresas.
+
+Nosso trabalho é criar valor, encantar e marcar momentos ou marcas de forma duradoura e eficiente. Aqui você encontra produtos personalizados incríveis do jeitinho que precisa!</p>
+   
+      <!-- Lado direito: informações sobre a empresa -->
+      <div class="qs-texto">
+             
+        <div class="qs-missao-visao-valores">
+          <div class="qsmv-item">
+            <h6>Missão</h6>
+            <p>Proporcionar experiências significativas por meio da criação e personalização de produtos e 
+              presentes para todas as ocasiões, unindo criatividade, design profissional e cuidado em cada detalhe.</p>
+          </div>
+          <div class="qsmv-item">
+            <h6>Visão</h6>
+            <p>Ser a principal referência nacional em presentes e produtos personalizados, 
+              reconhecida por transformar o mercado com design criativo, inovação constante e 
+              experiências que marcam a vida das pessoas.</p>
+          </div>
+
+        </div>
+                  <div class="qsmv-item">
+            <h6>Valores</h6>
+            <p>Excelência em cada detalhe: compromisso com qualidade em produtos, serviços e experiências.
+
+                 <p>Criatividade e design profissional: transformar ideias em presentes únicos, com olhar técnico e inovador.</p>
+
+                 <p>Ética e respeito: relações transparentes e valorização das pessoas.</p>
+
+                 <p>Sustentabilidade e responsabilidade: cuidado com o futuro em cada decisão.</p>
+
+                 <p>Valorização de vínculos afetivos: celebrar momentos, memórias e histórias que aproximam pessoas.</p>
+          </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+  <!-- ===== BOTÃO FLUTUANTE DO WHATSAPP ===== -->
+  <a href="https://wa.me/message/H3V7AEITLP56I1" class="whatsapp-float" target="_blank" aria-label="Fale conosco no WhatsApp">
+    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" alt="WhatsApp">
+  </a>
+  <!-- ================================================== -->
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-logo">
+      <a href="index.html" class="logo">
+        <img src="IMAGENS/LOGOBRANCO.png" alt="Logo da MinhaMarca" style="height:70px;">
+      </a>
+    </div>
+
+    <div class="footer-links">
+       <!-- Botão Voltar ao Topo -->
+    <a href="#top" class="back-to-top">↑ Voltar ao topo</a>
+
+    <div class="footer-copy">
+ 
+    </div>
+
+ 
+  </div>
+</footer>
+  <!-- ===== SCRIPTS ===== -->
+  <script src="script.js"></script>
+  <script>
+    // Código para incluir o menu.html
+    fetch('menu.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('menu-placeholder').innerHTML = data;
+      });
+  </script>
+
+</body>
+</html>
