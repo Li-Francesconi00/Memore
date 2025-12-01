@@ -4,7 +4,7 @@
 document.addEventListener('DOMContentLoaded', () => {
 
   // ==========================
-  // CARROSSEL DE SLIDES PRINCIPAL
+  // CARROSSEL DE SLIDES PRINCIPAL (AJUSTADO MOBILE)
   // ==========================
   const slides = document.querySelectorAll('.slide');
   const btnNext = document.querySelector('.next');
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
     slides.forEach((slide, i) => {
       slide.classList.toggle('active', i === index);
       slide.style.opacity = i === index ? '1' : '0';
-      slide.style.zIndex = i === index ? '2' : '1';
+      slide.style.zIndex = i === index ? '1' : '0';
     });
     dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
     currentSlide = index;
@@ -47,10 +47,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (btnNext) btnNext.addEventListener('click', () => { nextSlide(); restartAuto(); });
   if (btnPrev) btnPrev.addEventListener('click', () => { prevSlide(); restartAuto(); });
+
   if (slides.length > 0) { showSlide(0); startAuto(); }
 
   // ==========================
-  // SWIPE / TOUCH PARA O CARROSSEL PRINCIPAL
+  // SWIPE / TOUCH
   // ==========================
   const carouselElement = document.querySelector('.carousel');
   let touchStartX = 0;
@@ -68,7 +69,13 @@ document.addEventListener('DOMContentLoaded', () => {
       touchEndX = e.touches[0].clientX;
     });
 
-    carouselElement.addEventListener('touchend', () => {
+    carouselElement.addEventListener('touchend', e => {
+      // Se o usuário tocou em um link, não executa swipe
+      if (e.target.tagName === 'A') {
+        restartAuto();
+        return;
+      }
+
       const distance = touchEndX - touchStartX;
 
       if (distance > SWIPE_THRESHOLD) prevSlide();
@@ -146,9 +153,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const prev = card.querySelector('.prev');
     const next = card.querySelector('.next');
 
-    // -----------------------------
-    // ★ MOSTRAR FLECHAS SOMENTE SE TIVER MAIS DE 1 FOTO ★
-    // -----------------------------
     if (imgs.length <= 1) {
       if (prev) prev.style.display = "none";
       if (next) next.style.display = "none";
@@ -271,8 +275,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!p) return;
 
     let fontSize = MAX_FONT;
-    p.style.fontSize = fontSize + 'px';
     desc.style.overflowY = 'auto';
+    p.style.fontSize = fontSize + 'px';
 
     while (p.scrollHeight > desc.clientHeight && fontSize > MIN_FONT) {
       fontSize -= step;
