@@ -1046,7 +1046,7 @@ main.product-page .product-grid {
 }
 
 main.product-page .produto-card {
-  height: 400px; /* altura fixa */
+  height: 430px; /* altura fixa */
   border: 1px solid #e50f54;
   background: #fcfcfc;
   display: flex;
@@ -1123,6 +1123,14 @@ main.product-page .botao-comprar {
   text-decoration: none;
   border-radius: 3px;
   transition: background 0.3s;
+font-family: "lato", sans-serif;
+font-weight: 700;
+font-style: normal;
+
+}
+
+.preco-info{
+  color: #e50f54
 }
 
 main.product-page .botao-comprar:hover { background-color: #326e77; }
@@ -1196,4 +1204,30 @@ h5{
   justify-content: center;
   align-items: center;
 
+}
+
+
+.botao-call{
+  display: inline-block;
+  padding: 4px 10px;
+  background-color: #e50f54;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 600;
+  margin-bottom: 20px;
+
+}
+
+.call-to-action{
+  text-align: center;
+}
+
+
+.texto-call{
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-bottom: 10px;
+  padding-top: 20px;
+  font-size: 20px;
 }
