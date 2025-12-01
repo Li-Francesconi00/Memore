@@ -1,10 +1,10 @@
 // ==========================
-// SCRIPT PRINCIPAL COMPLETO
+// SCRIPT PRINCIPAL COMPLETO (CORRIGIDO MOBILE LINKS)
 // ==========================
 document.addEventListener('DOMContentLoaded', () => {
 
   // ==========================
-  // CARROSSEL DE SLIDES PRINCIPAL (AJUSTADO MOBILE)
+  // CARROSSEL DE SLIDES PRINCIPAL
   // ==========================
   const slides = document.querySelectorAll('.slide');
   const btnNext = document.querySelector('.next');
@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (slides.length > 0) { showSlide(0); startAuto(); }
 
   // ==========================
-  // SWIPE / TOUCH
+  // SWIPE / TOUCH PARA O CARROSSEL
   // ==========================
   const carouselElement = document.querySelector('.carousel');
   let touchStartX = 0;
@@ -70,17 +70,15 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     carouselElement.addEventListener('touchend', e => {
-      // Se o usuário tocou em um link, não executa swipe
-      if (e.target.tagName === 'A') {
+      // ❌ Bloqueia swipe se o toque foi em um link do slide
+      if (e.target.closest('a')) {
         restartAuto();
         return;
       }
 
       const distance = touchEndX - touchStartX;
-
       if (distance > SWIPE_THRESHOLD) prevSlide();
       else if (distance < -SWIPE_THRESHOLD) nextSlide();
-
       restartAuto();
     });
 
@@ -172,7 +170,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (track) {
       track.addEventListener('touchstart', e => startX = e.touches[0].clientX);
-
       track.addEventListener('touchend', e => {
         let endX = e.changedTouches[0].clientX;
         if (endX < startX - 30) showImage(indexImg < imgs.length - 1 ? indexImg + 1 : 0);
