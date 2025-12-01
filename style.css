@@ -997,6 +997,7 @@ header input[type="text"] {
 @media (max-width: 600px) {
     .product-grid {
         grid-template-columns: 1fr; /* 1 coluna */
+        
     }
 }
 
@@ -1020,6 +1021,7 @@ header input[type="text"] {
   .contato-cards {
     flex-direction: column;
     gap: 15px;
+    align-content: center;
   }
 }
 
