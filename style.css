@@ -1025,6 +1025,12 @@ header input[type="text"] {
   }
 }
 
+  @media (max-width: 600px){
+.contato-cards{
+  align-content: center;
+}
+  }
+
 
 @media (min-width: 1600px) {
 .carousel{
