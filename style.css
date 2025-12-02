@@ -1113,19 +1113,38 @@ main.product-page .descricao-card {
   gap: 5px;
   overflow-y: auto; /* barra de rolagem vertical se precisar */
   word-break: break-word; /* quebra palavras longas */
-  font-size: 14px; /* tamanho inicial da fonte */
+  font-size: 12px; /* tamanho inicial da fonte */
   line-height: 1.2;
 }
 
 /* Ajuste automático do tamanho da fonte via JS */
 
 
-main.product-page .descricao-card p { font-size: 14px; padding-top: 10px; }
+main.product-page .descricao-card p { 
+  font-size: 12px;
+  padding-top: 10px;
+
+
+
+  }
+
+
+.titulo-descricao-produto{
+font-weight: 700;
+
+}
+
+.texto-descricao-produto{
+text-align: left;
+  word-break: normal;        /* deixa a quebra natural */
+  overflow-wrap: anywhere;   /* evita onda de espaçamentos gigantes */
+
+}
 
 main.product-page .botao-comprar {
   align-self: center;
   padding: 5px 10px;
-  font-size: 12px;
+  font-size: 14px;
   background-color: #e50f54;
   color: #fff;
   text-decoration: none;
@@ -1134,6 +1153,7 @@ main.product-page .botao-comprar {
 font-family: "lato", sans-serif;
 font-weight: 700;
 font-style: normal;
+
 
 }
 
@@ -1163,6 +1183,29 @@ h2{
 }
 
 
+/* Largura da barra */
+main.product-page .descricao-card::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Fundo da barra (trilho) */
+main.product-page .descricao-card::-webkit-scrollbar-track {
+  background: rgba(0,0,0,0.05); /* trilho clarinho */
+  border-radius: 10px;
+}
+
+/* A parte que se move (thumb) */
+main.product-page .descricao-card::-webkit-scrollbar-thumb {
+  background: #e50f54; /* sua cor rosa principal */
+  border-radius: 10px;
+}
+
+/* Cor quando passa o mouse */
+main.product-page .descricao-card::-webkit-scrollbar-thumb:hover {
+  background: #b70c42; /* tom mais escuro pra hover */
+}
+
+
 h3 {
   font-size: 18px;
   font-weight: bold;
@@ -1170,6 +1213,7 @@ h3 {
  color: #326e77;
  font-family: "lato", sans-serif;
  font-style: normal;
+ 
  
 }
 

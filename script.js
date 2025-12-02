@@ -70,7 +70,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     carouselElement.addEventListener('touchend', e => {
-      // ❌ Bloqueia swipe se o toque foi em um link do slide
       if (e.target.closest('a')) {
         restartAuto();
         return;
@@ -280,5 +279,30 @@ document.addEventListener('DOMContentLoaded', () => {
       p.style.fontSize = fontSize + 'px';
     }
   });
+
+  // ==========================
+  // AJUSTE AUTOMÁTICO DO <h3> PARA CABER EM UMA LINHA
+  // ==========================
+  function ajustarTitulos() {
+    const titulos = document.querySelectorAll('.produto-card h3');
+
+    titulos.forEach(titulo => {
+      let fontSize = 14; // MAX
+      const minSize = 10; // MIN
+
+      titulo.style.whiteSpace = "nowrap"; // impede quebrar linha
+      titulo.style.display = "block"; // garante cálculo correto
+
+      // Diminui a fonte até caber em 1 linha
+      while (titulo.scrollWidth > titulo.clientWidth && fontSize > minSize) {
+        fontSize -= 0.5;
+        titulo.style.fontSize = fontSize + "px";
+      }
+    });
+  }
+
+  // executa depois da página carregar
+  ajustarTitulos();
+
 
 }); // FIM DO DOMCONTENTLOADED
